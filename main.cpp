@@ -21,7 +21,9 @@
 void exibeMenu(); 
 void desconectar();
 void verCompromissos();
+void removerCompromisso();
 void mostrarErroDoMysql();
+void editarCompromisso();
 void adicionarCompromisso();
 
 /////////////////////////////
@@ -38,22 +40,31 @@ bool conectado = false;
 /// Constantes ///
 //////////////////
 
-const unsigned int ADICIONAR_COMPROMISSO = 0;
-const unsigned int REMOVER_COMPROMISSO = 1;
-const unsigned int MOSTRAR_COMPROMISSO = 2;
-const unsigned int EDITAR_COMPROMISSO = 3;
-const unsigned int SAIR = 4;
+const unsigned int ADICIONAR_COMPROMISSO = 1;
+const unsigned int REMOVER_COMPROMISSO = 2;
+const unsigned int MOSTRAR_COMPROMISSO = 3;
+const unsigned int EDITAR_COMPROMISSO = 4;
+const unsigned int SAIR = 5;
 
 /**
  * Função principal
- */
+ */iu 
 int main(int argc, char **argv) {
 
 	// Exibe a mensagem de boas vindas
 	std::cout << "Boas vindas da agenda!" << std::endl;
 
+
 	exibeMenu();
 
+void exibeMenu() {
+		std::cout << "Escolha uma opção:" << std::endl;
+		std::cout << ADICIONAR_COMPROMISSO << " - Adicionar compromisso" << std::endl;
+		std::cout << REMOVER_COMPROMISSO << " - Remover compromisso" << std::endl;
+		std::cout << MOSTRAR_COMPROMISSO << " - Mostrar compromisso" << std::endl;
+		std::cout << EDITAR_COMPROMISSO << " - Editar compromisso" << std::endl;
+		std::cout << SAIR << " - SAIR" << std::endl;
+	}
 	// Guarda a opção escolhida
 	int opcao;
 
@@ -70,15 +81,13 @@ int main(int argc, char **argv) {
 				adicionarCompromisso();
 				break;
 			case REMOVER_COMPROMISSO:
-				// TODO implementar
-				std::cout << "Falta implementar." << std::endl;
+				removerCompromisso();
 				break;
 			case MOSTRAR_COMPROMISSO:
 				verCompromissos();
 				break;
 			case EDITAR_COMPROMISSO:
-				// TODO implementar
-				std::cout << "Falta implementar." << std::endl;
+				editarCompromisso();
 				break;
 		}
 
@@ -93,14 +102,7 @@ int main(int argc, char **argv) {
 /**
  * Exibe um menu para o usuário
  */
-void exibeMenu() {
-	std::cout << "Escolha uma opção:" << std::endl;
-	std::cout << ADICIONAR_COMPROMISSO << " - Adicionar compromisso" << std::endl;
-	std::cout << REMOVER_COMPROMISSO << " - Remover compromisso" << std::endl;
-	std::cout << MOSTRAR_COMPROMISSO << " - Mostrar compromisso" << std::endl;
-	std::cout << EDITAR_COMPROMISSO << " - Editar compromisso" << std::endl;
-	std::cout << SAIR << " - SAIR" << std::endl;
-}
+
 
 /**
  * Mostra os erros que podem ocorrer na conexão
@@ -186,6 +188,28 @@ void adicionarCompromisso() {
 		std::cout << "Falha ao inserir compromisso!" << std::endl;
 	}
 
+}
+
+//nessa função removemos os dados do compromisso
+void removerCompromisso();{
+	
+	char YorN;
+	
+	std::cout << statusDeExecucao << std::endl;
+	std::cout << "Deseja apagar o compromisso?" << std::endl;
+	std::cout << "[y] para continuar,[n] para sair" << std::endl;
+	std::cin >> YorN;
+	
+	switch (YorN) {
+		case 'y':
+			//como apagar os dados?
+		 break;
+		case 'n':
+			//como fazer voltar ao menu?
+		 break;
+		default:
+			break;
+	}
 }
 
 void verCompromissos() {
